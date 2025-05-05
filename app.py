@@ -6,6 +6,8 @@ from streamlit_drawable_canvas import st_canvas
 from PIL import Image
 import numpy as np
 import requests
+from datetime import datetime
+import pytz
 
 st.set_page_config(
     page_title=" Request Form For User",
@@ -59,8 +61,10 @@ def save_signature(canvas, filename):
 
 # === UI ===
 st.title("📋 Request Form: Hardware / Software / Upgrade")
-now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-st.markdown(f"**🕒 Date:** `{now}`")
+thai_timezone = pytz.timezone('Asia/Bangkok')
+now = datetime.now(thai_timezone).strftime("%Y-%m-%d %H:%M:%S")
+
+st.markdown(f"🕒 **Date:** `{now}`")
 
 request_type = st.radio("📦 Request Type", ["Hardware", "Software", "Upgrade"])
 item_options = {

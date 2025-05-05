@@ -5,3 +5,4 @@ Pillow
 requests
 openpyxl
 streamlit-drawable-canvas
+pytz
